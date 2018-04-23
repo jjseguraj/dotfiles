@@ -1,0 +1,12 @@
+#-------------------------------------------------------------------------------
+# Name:      applications
+# Purpose:   List of applications used and configured by dotfiles
+#
+# Author:    Jose Segura
+#
+# Created:   21/04/2018
+#-------------------------------------------------------------------------------
+
+# i3 desktop environment
+setxkbmap
+feh
