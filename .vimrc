@@ -96,6 +96,9 @@ set nowrap
 set wrapmargin=0
 set textwidth=78
 
+" Enable mouse wheel
+set mouse=a
+
 " Mappings
 " ==========================================================================
 " CTags Key bindings
