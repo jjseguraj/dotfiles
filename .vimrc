@@ -20,7 +20,7 @@ let g:tagbar_ctags_bin='ctags'
 set number
 set guifont=Roboto\ Mono\ Medium\ for\ Powerline\ 11
 if has('gui_running')
-    colorscheme desert
+    colorscheme slate
     set lines=999 columns=999
     let g:airline_powerline_fonts = 1
     let g:Powerline_symbols = 'fancy'
@@ -85,6 +85,9 @@ set expandtab
 set foldmethod=syntax
 au BufRead * normal zR
 
+" Allows C-Q to reach Vim
+silent !stty -ixon > /dev/null 2>&1
+
 " Enable highlighting, incremental search and ignore case
 set hls is ic
 
@@ -125,11 +128,12 @@ inoremap ;; <Esc>
 
 " Bindings useful for TDD 
 """ These first two depend on the dev environment
-" inoremap <C-O> <Esc>:up<CR>:make test<CR>
-" nnoremap <C-O> :up<CR>:make test<CR>
+" inoremap <C-O> <Esc>:up<CR>:make settime<CR>:!./settime<CR>
+" nnoremap <C-O> :up<CR>:make settime<CR>:!./settime<CR>
+
 """ Bindings to move between windows
 "nnoremap <S-J> <C-W><C-J> " <S-J> joins the lower line at the end
-nnoremap <S-K> <C-W><C-K> " To move to the minibuffer explorer
+nnoremap <S-K> <C-W><C-K> " Move to the minibuffer explorer
 nnoremap <S-H> <C-W><C-H>
 nnoremap <S-L> <C-W><C-L>
 
@@ -138,10 +142,14 @@ nnoremap <S-L> <C-W><C-L>
 inoremap <C-L> <Esc>:up<CR>
 " Leave insert mode, update the buffer and quit
 inoremap <C-K> <Esc>:up<CR>:q<CR>
+" Leave insert mode and quit without saving
+inoremap <C-Q> <Esc>:q!<CR>
 " If in normal mode, update the buffer and suspend
 nnoremap <C-L> :up<CR>:sus<CR>
 " If in normal mode, update the buffer and quit
 nnoremap <C-K> :up<CR>:q<CR>
+" If in normal mode, quit without saving
+nnoremap <C-Q> :q!<CR>
 " ==========================================================================
 " End of Mappings
 
