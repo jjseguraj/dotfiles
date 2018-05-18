@@ -130,4 +130,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Allows C-Q to reach Vim
+stty -ixon
+
 # cowsay "hello jose!!!"

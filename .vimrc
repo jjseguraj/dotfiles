@@ -85,9 +85,6 @@ set expandtab
 set foldmethod=syntax
 au BufRead * normal zR
 
-" Allows C-Q to reach Vim
-silent !stty -ixon > /dev/null 2>&1
-
 " Enable highlighting, incremental search and ignore case
 set hls is ic
 
