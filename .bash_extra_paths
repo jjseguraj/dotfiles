@@ -1,0 +1,8 @@
+# Extra paths.
+# This file is aimed to keep extra paths, which may be different between
+# installations, in a separate file and keep only in .bashr the common
+# configuratinon  bits, instead of adding them here directly. This helps
+# to share .bashrc between installations more easily.
+PATH=$PATH:/usr/local/x-tools/arm-unknown-linux-gnueabi/bin
+export PATH=$PATH:~/development/gcc-arm-none-eabi-7-2017-q4-major/bin
+
