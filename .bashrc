@@ -99,6 +99,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Git completions for Git aliases in .bash_aliases
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
+
 # Extra paths.
 # Having specific extra paths in a separate file like ~/.bash_extra_paths,
 # instead of adding them here directly, helps to share .bashrc between
