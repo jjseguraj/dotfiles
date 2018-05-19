@@ -38,7 +38,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-force_color_prompt=yes
+# force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -63,7 +63,7 @@ blue="\[\033[01;34m\]"
 if [ "$color_prompt" = yes ]; then
     PS1="[\u@\h$green\$(__git_ps1)$reset: $blue\w$reset]\$ "
 else
-    PS1="[\u@\h: \w]\$ "
+    PS1="[\u@\h\$(__git_ps1): \w]\$ "
 fi
 unset color_prompt force_color_prompt
 
@@ -88,19 +88,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -lh'
-alias la='ls -A'
-alias l='ls -CF'
-alias lr='ls -R'
-alias lrl='ls -Rl'
-alias lt='ls -lth'
-alias chmod='chmod -c'
-alias v='gvim'
-alias ping4='ping -c 4'
-alias gd='gvimdiff'
-
-# some exports
+# Exports
 export GIT_EDITOR=vim
 
 # Alias definitions.
