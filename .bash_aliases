@@ -14,6 +14,8 @@ alias b='git branch'
 alias l='git log'
 alias r='git reset'
 alias a='git add'
+alias d='git diff'
+alias dv='git difftool --tool=vimdiff --no-prompt'
 
 # Other convenient aliases
 alias chmod='chmod -c'
