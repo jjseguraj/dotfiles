@@ -79,6 +79,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set fo+=j
 " set smartindent
 
 " Enable folding and always start unfold
