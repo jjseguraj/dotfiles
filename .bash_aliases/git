@@ -1,0 +1,10 @@
+# git aliases
+alias s='git status'
+alias cm='git commit'
+alias ck='git checkout'
+alias b='git branch'
+alias l='git log'
+alias r='git reset'
+alias a='git add'
+alias d='git diff'
+alias dv='git difftool --tool=vimdiff --no-prompt'
