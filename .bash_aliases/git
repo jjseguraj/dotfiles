@@ -8,3 +8,8 @@ alias r='git reset'
 alias a='git add'
 alias d='git diff'
 alias dv='git difftool --tool=vimdiff --no-prompt'
+
+# Git completions for Git aliases
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
