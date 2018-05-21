@@ -61,16 +61,16 @@ reset="\[\033[00m\]"
 blue="\[\033[01;34m\]"
 
 if [ "$color_prompt" = yes ]; then
-    PS1="[\u@\h$green\$(__git_ps1)$reset: $blue\w$reset]\$ "
+    PS1="[\u@\h$green\$(__git_ps1)$reset: $blue\W$reset]\$ "
 else
-    PS1="[\u@\h\$(__git_ps1): \w]\$ "
+    PS1="[\u@\h\$(__git_ps1): \W]\$ "
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;\u@\h: \W\a\]$PS1"
     ;;
 *)
     ;;
