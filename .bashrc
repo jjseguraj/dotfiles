@@ -109,5 +109,6 @@ fi
 
 # Allows C-Q to reach Vim
 stty -ixon
+stty -ixany
 
 # cowsay "hello jose!!!"

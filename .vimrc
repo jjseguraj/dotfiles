@@ -130,24 +130,33 @@ inoremap ;; <Esc>
 " nnoremap <C-O> :up<CR>:make settime<CR>:!./settime<CR>
 
 """ Bindings to move between windows
-"nnoremap <S-J> <C-W><C-J> " <S-J> joins the lower line at the end
-nnoremap <S-K> <C-W><C-K> " Move to the minibuffer explorer
-nnoremap <S-H> <C-W><C-H>
-nnoremap <S-L> <C-W><C-L>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-L> <C-W><C-L>
 
 
 " Leave insert mode and update the buffer
-inoremap <C-L> <Esc>:up<CR>
+inoremap <C-O> <Esc>:up<CR>
+" Leave insert mode, update the buffer and suspend
+inoremap <C-S> <Esc>:up<CR>:sus<CR>
 " Leave insert mode, update the buffer and quit
-inoremap <C-K> <Esc>:up<CR>:q<CR>
-" Leave insert mode and quit without saving
-inoremap <C-Q> <Esc>:q!<CR>
-" If in normal mode, update the buffer and suspend
-nnoremap <C-L> :up<CR>:sus<CR>
-" If in normal mode, update the buffer and quit
-nnoremap <C-K> :up<CR>:q<CR>
-" If in normal mode, quit without saving
-nnoremap <C-Q> :q!<CR>
+inoremap <C-X> <Esc>:up<CR>:q<CR>
+" Leave insert mode and quit buffer without saving
+inoremap <C-C> <Esc>:q!<CR>
+" Leave insert mode and quit all the buffers without saving
+inoremap <C-A> <Esc>:qa!<CR>
+
+" Update the buffer
+nnoremap <C-O> :up<CR>
+" Update the buffer and suspend
+nnoremap <C-S> :up<CR>:sus<CR>
+" Update the buffer and quit
+nnoremap <C-X> :up<CR>:q<CR>
+" Quit buffer without saving
+nnoremap <C-C> :q!<CR>
+" Quit all the buffers without saving
+nnoremap <C-A> :qa!<CR>
 " ==========================================================================
 " End of Mappings
 
