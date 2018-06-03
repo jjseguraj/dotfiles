@@ -143,7 +143,7 @@ inoremap <C-S> <Esc>:up<CR>:sus<CR>
 " Leave insert mode, update the buffer and quit
 inoremap <C-X> <Esc>:up<CR>:q<CR>
 " Leave insert mode and quit buffer without saving
-inoremap <C-C> <Esc>:q!<CR>
+inoremap <C-Q> <Esc>:q!<CR>
 " Leave insert mode and quit all the buffers without saving
 inoremap <C-A> <Esc>:qa!<CR>
 
@@ -154,7 +154,7 @@ nnoremap <C-S> :up<CR>:sus<CR>
 " Update the buffer and quit
 nnoremap <C-X> :up<CR>:q<CR>
 " Quit buffer without saving
-nnoremap <C-C> :q!<CR>
+nnoremap <C-Q> :q!<CR>
 " Quit all the buffers without saving
 nnoremap <C-A> :qa!<CR>
 " ==========================================================================
