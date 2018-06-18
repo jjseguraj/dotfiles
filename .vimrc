@@ -136,6 +136,8 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
 
 
+" Leave insert mode
+inoremap <C-I> <Esc>
 " Leave insert mode and update the buffer
 inoremap <C-O> <Esc>:up<CR>
 " Leave insert mode, update the buffer and suspend
