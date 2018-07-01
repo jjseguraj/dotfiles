@@ -17,7 +17,13 @@ let tagbar_left = 1
 let g:tagbar_ctags_bin='ctags'
 
 " Look and feel
-set number
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 set guifont=Roboto\ Mono\ Medium\ for\ Powerline\ 11
 if has('gui_running')
     colorscheme slate
@@ -79,7 +85,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-set fo+=j
+set fo+=jt
 " set smartindent
 
 " Enable folding and always start unfold
@@ -137,7 +143,7 @@ nnoremap <C-L> <C-W><C-L>
 
 
 " Leave insert mode
-inoremap <C-I> <Esc>
+inoremap <C-[> <Esc>
 " Leave insert mode and update the buffer
 inoremap <C-O> <Esc>:up<CR>
 " Leave insert mode, update the buffer and suspend
