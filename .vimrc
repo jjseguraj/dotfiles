@@ -25,23 +25,11 @@ augroup numbertoggle
 augroup END
 
 set guifont=Roboto\ Mono\ Medium\ for\ Powerline\ 11
+colorscheme slate
 if has('gui_running')
-    colorscheme slate
-    set lines=999 columns=999
     let g:airline_powerline_fonts = 1
     let g:Powerline_symbols = 'fancy'
-else
-    colorscheme slate
-    if exists("+lines")
-        set lines=45
-    endif
-    if exists("+columns")
-        set columns=90
-    endif
 endif
-
-"if has('gui_running')
-"endif
 
 " Open NERDTree + Tagbar + MiniBufExplorer
 function! s:LayoutWindows()
