@@ -125,7 +125,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod2+l exec "i3lock -i ~/Pictures/lock-wallpaper.png"
-bindsym $mod2+s exec "i3lock -i ~/Pictures/lock-wallpaper.png && systemctl -i suspend"
+bindsym $mod2+s exec "i3lock -i ~/Pictures/lock-wallpaper.png && sudo systemctl -i suspend"
 bindsym $mod2+Shift+r exec "sudo systemctl -i reboot"
 bindsym $mod2+Shift+h exec "sudo systemctl -i poweroff"
 
@@ -178,8 +178,8 @@ set $mode_system System (l) lock, (s) suspend, (h) hibernate, (r) reboot, (Shift
 mode "$mode_system" {
     bindsym l exec --no-startup-id "i3lock -i ~/Pictures/lock-wallpaper.png", mode "default"
     # bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id "i3lock -i ~/Pictures/lock-wallpaper.png && systemctl suspend", mode "default"
-    bindsym h exec --no-startup-id "i3lock -i ~/Pictures/lock-wallpaper.png && systemctl hibernate", mode "default"
+    bindsym s exec --no-startup-id "i3lock -i ~/Pictures/lock-wallpaper.png && sudo systemctl suspend", mode "default"
+    bindsym h exec --no-startup-id "i3lock -i ~/Pictures/lock-wallpaper.png && sude systemctl hibernate", mode "default"
     bindsym r exec --no-startup-id "systemctl reboot", mode "default"
     bindsym Shift+s exec --no-startup-id "systemctl shutdown", mode "default"
 
