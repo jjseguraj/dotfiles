@@ -16,6 +16,16 @@ filetype plugin indent on
 let tagbar_left = 1
 let g:tagbar_ctags_bin='ctags'
 
+" Automatically set/unset Vim's paste mode
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
 " Look and feel
 set number relativenumber
 augroup numbertoggle
@@ -73,7 +83,8 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-set fo+=jt
+set fo+=j
+set fo+=t
 " set smartindent
 
 " Enable folding and always start unfold
