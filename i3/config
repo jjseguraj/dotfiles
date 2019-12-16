@@ -76,6 +76,10 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+# move focused workspace
+bindsym $super+Shift+h exec --no-startup-id "i3-msg move workspace to output left", mode "default"
+bindsym $super+Shift+l exec --no-startup-id "i3-msg move workspace to output right", mode "default"
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -145,8 +149,6 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $super+l exec "i3lock -i $lock_picture"
 bindsym $super+s exec "i3lock -i $lock_picture && sudo systemctl -i suspend"
-bindsym $super+Shift+r exec "sudo systemctl -i reboot"
-bindsym $super+Shift+h exec "sudo systemctl -i poweroff"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
