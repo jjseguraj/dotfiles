@@ -8,6 +8,9 @@ alias r='git reset'
 alias a='git add'
 alias d='git diff'
 alias dv='git difftool --tool=vimdiff --no-prompt'
+alias rb='git rebase -i HEAD~10 --autosquash'
+alias pf='git push --force-with-lease'
+alias pullr='git pull --rebase'
 
 # Git completions for Git aliases
 if [ -f ~/.git-completion.bash ]; then
