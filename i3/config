@@ -17,8 +17,8 @@ set $mod Mod1
 set $super Mod4
 
 # Lock picture
-set $lock_picture /home/jsegura/Pictures/space-invadors-wallpaper.png
-set $background_picture /home/jsegura/Pictures/i3-wallpaper.png
+set $lock_picture ~/dotfiles/space-invadors-wallpaper.png
+set $background_picture ~/dotfiles/i3-wallpaper.png
 
 # Set the size of gaps between tiles
 # gaps inner 3
