@@ -214,4 +214,4 @@ bindsym $mod+Pause mode "$mode_system"
 # for_window [class="Chromium"] border none
 
 # set background image
-exec feh --bg-scale "$background_picture"
+exec "feh --bg-scale $background_picture"
