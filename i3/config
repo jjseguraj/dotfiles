@@ -4,8 +4,7 @@
 # It will not be overwritten, so edit it as you like.
 #
 # Should you change your keyboard layout some time, delete
-# this file and re-run i3-config-wizard(1).
-#
+# this file and re-run i3-config-wizard(1).  
 
 # i3 config file (v4)
 #
@@ -19,6 +18,11 @@ set $super Mod4
 # Lock picture
 set $lock_picture ~/dotfiles/space-invadors-wallpaper.png
 set $background_picture ~/dotfiles/i3-wallpaper.png
+
+# Screen configuration
+# Use xrandr (if using XWindows) to read the display IDs
+set $right_screen DVI-0
+set $left_screen HDMI-0
 
 # Set the size of gaps between tiles
 # gaps inner 3
@@ -77,8 +81,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # move focused workspace
-bindsym $super+Shift+h exec --no-startup-id "i3-msg move workspace to output left", mode "default"
-bindsym $super+Shift+l exec --no-startup-id "i3-msg move workspace to output right", mode "default"
+bindsym $super+Shift+h exec --no-startup-id \
+    "i3-msg move workspace to output left", mode "default"
+bindsym $super+Shift+l exec --no-startup-id \
+    "i3-msg move workspace to output right", mode "default"
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -146,7 +152,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec \
+    "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $super+l exec "i3lock -i $lock_picture"
 bindsym $super+s exec "i3lock -i $lock_picture && sudo systemctl -i suspend"
 
@@ -176,17 +183,21 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Manual management of wpa_supplicant service
-bindsym $mod2+w exec --no-startup-id "sudo systemctl start wpa_supplicant"
-bindsym $mod2+Shift+w exec --no-startup-id "sudo systemctl stop wpa_supplicant"
+bindsym $super+w exec --no-startup-id "sudo systemctl start wpa_supplicant"
+bindsym $super+Shift+w exec --no-startup-id "sudo systemctl stop wpa_supplicant"
 
 ## Manual management of external displays
-bindsym $mod2+v exec --no-startup-id xrandr --output LVDS1 --auto --right-of HDMI1 \
+bindsym $super+v exec --no-startup-id xrandr --output $right_screen \
+    --auto --right-of $left_screen \
     && feh --bg-scale $background_picture, mode "default"
-bindsym $mod2+d exec --no-startup-id xrandr --output HDMI1 --auto --left-of LVDS1 \
+bindsym $super+d exec --no-startup-id xrandr --output $left_screen \
+    --auto --left-of $right_screen \
     && feh --bg-scale $background_picture, mode "default"
-bindsym $mod2+Shift+v exec --no-startup-id xrandr --output LVDS1 --auto --off \
+bindsym $super+Shift+v exec --no-startup-id xrandr --output $right_screen \
+    --auto --off \
     && feh --bg-scale $background_picture, mode "default"
-bindsym $mod2+Shift+d exec --no-startup-id xrandr --output HDMI1 --auto --off \
+bindsym $super+Shift+d exec --no-startup-id xrandr --output $left_screen \
+    --auto --off \
     && feh --bg-scale $background_picture, mode "default"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -199,8 +210,10 @@ set $mode_system System (l) lock, (s) suspend, (h) hibernate, (r) reboot, (Shift
 mode "$mode_system" {
     bindsym l exec --no-startup-id "i3lock -i $lock_picture", mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id "i3lock -i $lock_picture" && "sudo systemctl -i suspend", mode "default"
-    bindsym h exec --no-startup-id "i3lock -i $lock_picture" && "sudo systemctl -i hibernate", mode "default"
+    bindsym s exec --no-startup-id "i3lock -i $lock_picture" \
+        && "sudo systemctl -i suspend", mode "default"
+    bindsym h exec --no-startup-id "i3lock -i $lock_picture" \
+        && "sudo systemctl -i hibernate", mode "default"
     bindsym r exec --no-startup-id "systemctl reboot", mode "default"
     bindsym Shift+s exec --no-startup-id "systemctl shutdown", mode "default"
 
