@@ -112,5 +112,5 @@ stty -ixon
 stty -ixany
 
 # Mirror history across terminals
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # cowsay "hello jose!!!"
