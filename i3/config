@@ -20,9 +20,9 @@ set $lock_picture ~/dotfiles/space-invadors-wallpaper.png
 set $background_picture ~/dotfiles/i3-wallpaper.png
 
 # Screen configuration
-# Use xrandr (if using XWindows) to read the display IDs
-set $left_screen #HDMI-0
-set $right_screen #DVI-0
+# Use xrandr (if using XWindows) to read the display IDs, then set variables
+set $hdmi_screen #HDMI-1
+set $laptop_screen #eDP-1
 
 # Set preferred terminal emulator
 set $term #gnome-terminal
@@ -51,8 +51,8 @@ font pango:DejaVu Sans Mono 9
 floating_modifier $mod
 
 # start a terminal
+bindsym $mod+Return exec dbus-launch $term
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec dbus-launch #$term
 # bindsym $mod+Return exec rxvt-unicode
 
 # kill focused window
@@ -190,16 +190,33 @@ bindsym $super+w exec --no-startup-id "sudo systemctl start wpa_supplicant"
 bindsym $super+Shift+w exec --no-startup-id "sudo systemctl stop wpa_supplicant"
 
 ## Manual management of external displays
-bindsym $super+v exec --no-startup-id xrandr --output $right_screen \
-    --auto --right-of $left_screen \
+# Turn on $laptop_screen on the right of $hdmi_screen
+bindsym $super+v exec --no-startup-id xrandr --output $laptop_screen \
+    --auto --right-of $hdmi_screen \
     && feh --bg-scale $background_picture, mode "default"
-bindsym $super+d exec --no-startup-id xrandr --output $left_screen \
-    --auto --left-of $right_screen \
+
+# Turn on $hdmi_screen on the left of the $laptop_screen
+bindsym $super+d exec --no-startup-id xrandr --output $hdmi_screen \
+    --auto --left-of $laptop_screen \
     && feh --bg-scale $background_picture, mode "default"
-bindsym $super+Shift+v exec --no-startup-id xrandr --output $right_screen \
+
+# Turn on $hdmi_screen and mirror $laptop_screen - auto resolution
+bindsym $super+e exec --no-startup-id xrandr --output $hdmi_screen \
+    --auto --same-as $laptop_screen \
+    && feh --bg-scale $background_picture, mode "default"
+
+# Turn on $hdmi_screen and mirror $laptop_screen - same resolution
+bindsym $super+m exec --no-startup-id xrandr --output $hdmi_screen \
+    --mode 1920x1080 --scale 1x1 --same-as $laptop_screen \
+    && feh --bg-scale $background_picture, mode "default"
+
+# Turn off $laptop_screen
+bindsym $super+Shift+v exec --no-startup-id xrandr --output $laptop_screen \
     --auto --off \
     && feh --bg-scale $background_picture, mode "default"
-bindsym $super+Shift+d exec --no-startup-id xrandr --output $left_screen \
+
+# Turn off $hdmi_screen
+bindsym $super+Shift+d exec --no-startup-id xrandr --output $hdmi_screen \
     --auto --off \
     && feh --bg-scale $background_picture, mode "default"
 
