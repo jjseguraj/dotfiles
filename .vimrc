@@ -27,17 +27,25 @@ function! XTermPasteBegin()
 endfunction
 
 " Look and feel
-set number relativenumber
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
-set guifont=Roboto\ Mono\ Medium\ for\ Powerline\ 11
 colorscheme slate
+set number
+
 if has('gui_running')
-    let g:airline_powerline_fonts = 1
+    set guifont=Roboto\ Mono\ Light\ for\ Powerline\ 11
+"    set guifont=Inconsolata\ for\ Powerline:h15
+"    set guifont=Courier_New:h11:cDEFAULT
+endif
+
+set termencoding=utf-8
+set encoding=utf-8
+let g:airline_powerline_fonts = 1
+let g:airline_enable_branch = 1
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
     let g:Powerline_symbols = 'fancy'
 endif
 
