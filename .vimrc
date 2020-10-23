@@ -126,7 +126,8 @@ set mouse=a
 "map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Custom plugins map to keys
-map <F12> <ESC>:NERDTreeToggle<RETURN>
+" Toggle NERDTree and return to rhs pane
+map <F12> <ESC>:NERDTreeToggle<RETURN><C-W><C-L>
 map <F10> <ESC>:TagbarToggle<RETURN>
 
 " Bindings to set and unset the limit bar
