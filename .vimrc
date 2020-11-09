@@ -41,15 +41,27 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set t_Co=256
 colorscheme monokai
-" Black backgrounds
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
-highlight LineNr ctermbg=NONE
+"highlight Normal ctermbg=NONE
+"highlight nonText ctermbg=NONE
+"highlight LineNr ctermbg=NONE
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
     let g:Powerline_symbols = 'fancy'
 endif
+
+" vim-powerline symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = ' '
 
 " Open NERDTree + Tagbar + MiniBufExplorer
 function! s:LayoutWindows()
@@ -150,6 +162,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
+
+""" Bindings to resize windows vertically
+nnoremap = 2<C-W>>
+nnoremap - 2<C-W><lt>
 
 
 " Leave insert mode
