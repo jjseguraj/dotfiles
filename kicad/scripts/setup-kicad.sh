@@ -82,11 +82,21 @@ def vars_to_object:
     {}
   end;
 
+# --- Environment vars ---
 .environment = (.environment // {}) |
 .environment.vars = ((.environment.vars | vars_to_object) + {
   "KICAD_USER_LIB_DIR": $lib,
   "KICAD_USER_3DMODEL_DIR": $model
-})
+}) |
+
+# --- Input preferences ---
+.input = (.input // {}) |
+.input.center_on_zoom = false |
+.input.mouse_left = -2 |
+.input.scroll_modifier_pan_h = 306 |
+.input.scroll_modifier_pan_v = 0 |
+.input.scroll_modifier_zoom = 308
+
 ' "$CONFIG_FILE" > "$tmpfile"
 
 mv "$tmpfile" "$CONFIG_FILE"
