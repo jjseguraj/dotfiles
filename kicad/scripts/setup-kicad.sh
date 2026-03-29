@@ -2,7 +2,7 @@
 set -euo pipefail
 
 EXPECTED_KICAD_SERIES="7.0"
-LIB_DIR="$HOME/electronics/my-kicad-library"
+LIB_DIR="$HOME/electronics/sedge-kicad-library"
 DOTFILES_DIR="$HOME/dotfiles/kicad/config"
 
 echo "Setting up KiCad environment..."
