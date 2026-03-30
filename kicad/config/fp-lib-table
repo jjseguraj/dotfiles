@@ -1,6 +1,6 @@
 (fp_lib_table
 	(version 7)
 	(lib (name "KiCad") (type "Table") (uri "${KICAD10_TEMPLATE_DIR}/fp-lib-table") (options "") (descr "KiCad Default Libraries"))
-  (lib (name "Package_HZIP_THT")(type "KiCad")(uri "${KICAD_USER_LIB_DIR}/footprints/Package_HZIP_THT.pretty")(options "")(descr ""))
-  (lib (name "Package_Connector_THT")(type "KiCad")(uri "${KICAD_USER_LIB_DIR}/footprints/Package_Connector_THT.pretty")(options "")(descr ""))
+	(lib (name "Package_HZIP_THT") (type "KiCad") (uri "${KICAD_USER_LIB_DIR}/footprints/Package_HZIP_THT.pretty") (options "") (descr ""))
+	(lib (name "Package_Connector_THT") (type "KiCad") (uri "${KICAD_USER_LIB_DIR}/footprints/Package_Connector_THT.pretty") (options "") (descr ""))
 )
